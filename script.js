@@ -14,6 +14,7 @@ Create an HTML page with an input field, an “Add Item” button, and an unorde
 Write a JavaScript function that adds items to the array and updates the displayed list dynamically when the button is clicked.
 Write another function that removes the last item and updates the displayed list when a “Remove Last Item” button is clicked.*/
 
+
 //Task 1: Array Manipulation Basics
 const shoppingList = [];
 
@@ -60,7 +61,7 @@ function filterItems() {
     let li = document.createElement("li");
 
     //update the li element with text
-    li.textContent = searchValue;
+    li.textContent = mySearchedItem[i];
 
     //append the new element to the ul
     searchedList.appendChild(li);
@@ -79,6 +80,7 @@ const removeBtn = document.getElementById("remove-btn");
 const searchBtn = document.getElementById("search-btn");
 const searchedList = document.getElementById("searched-list");
 const searchInput = document.getElementById("search-input");
+const clearSearch = document.getElementById("clear-search");
 
 function addAndDisplayItems() {
   //add the item to the array using the push() or the custom function addItem
@@ -99,7 +101,7 @@ function addAndDisplayItems() {
 
 addButton.addEventListener("click", addAndDisplayItems);
 
-searchBtn.addEventListener("click", filterItems);
+
 
 function removLastItemAndUpdate() {
   //remove the last item in the array by using pop() or the custom function removeLastItem()
@@ -113,3 +115,17 @@ function removLastItemAndUpdate() {
 }
 
 removeBtn.addEventListener("click", removLastItemAndUpdate);
+
+//Clear the search
+clearSearch.addEventListener("click", function (){
+  
+    //searchedList.remove();
+    while(searchedList.firstElementChild){
+      
+      
+      searchedList.firstElementChild.remove();
+    }
+})
+
+searchBtn.addEventListener("click", filterItems);
+//filterItems();

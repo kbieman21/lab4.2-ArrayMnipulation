@@ -54,6 +54,16 @@ function filterItems() {
     (item) => item.toLowerCase() === searchValue.toLowerCase() //what we see inside the filter() is another function written in short
   );
 
+  if(mySearchedItem !== searchValue){
+    let li = document.createElement("li");
+
+    //update the li element with text
+    li.textContent = "No match.";
+
+    //append the new element to the ul
+    searchedList.appendChild(li);
+    
+  }
   console.log("filtered Item ", mySearchedItem);
 
   for (i = 0; i < mySearchedItem.length; i++) {
